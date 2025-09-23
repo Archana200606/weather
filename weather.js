@@ -1,6 +1,7 @@
 function getWeather() {
   let city = document.getElementById("cityInput").value.trim();
   let resultBox = document.getElementById("Result");
+  let body = document.body; // target background of page
 
   if (city === "") {
     resultBox.style.display = "block";
@@ -22,17 +23,32 @@ function getWeather() {
         let suggestion = "";
 
         // Simple weather suggestions
-        if (mainCondition.includes("rain")) suggestion = "🌂 Carry an umbrella!";
-        else if (mainCondition.includes("cloud")) suggestion = "☁ It might be cloudy, dress comfortably.";
-        else if (mainCondition.includes("clear")) suggestion = "☀️ It's sunny! Wear sunglasses.";
-        else if (mainCondition.includes("snow")) suggestion = "❄️ Wear warm clothes!";
-        else if (mainCondition.includes("wind")) suggestion = "💨 It’s windy, wear a jacket!";
-        else if (mainCondition.includes("storm") || mainCondition.includes("thunder")) suggestion = "⚡ Stay indoors if possible!";
-        else suggestion = "🌤 Have a nice day!";
+        if (mainCondition.includes("rain")) {
+          suggestion = "🌂 Carry an umbrella!";
+          body.style.backgroundImage = "url('rainy.webp')";
+        } else if (mainCondition.includes("cloud")) {
+          suggestion = "☁ It might be cloudy, dress comfortably.";
+          body.style.backgroundImage = "url('cloudy.avif')";
+        } else if (mainCondition.includes("clear")) {
+          suggestion = "☀️ It's sunny! Wear sunglasses.";
+          body.style.backgroundImage = "url(sunny.avif)";
+        } else if (mainCondition.includes("snow")) {
+          suggestion = "❄️ Wear warm clothes!";
+          body.style.backgroundImage = "url(snowy.avif)";
+        } else if (mainCondition.includes("wind")) {
+          suggestion = "💨 It’s windy, wear a jacket!";
+          body.style.backgroundImage = "url(windy.avif)";
+        } else if (mainCondition.includes("storm") || mainCondition.includes("thunder")) {
+          suggestion = "⚡ Stay indoors if possible!";
+          body.style.backgroundImage = "url(stormy.avif)";
+        } else {
+          suggestion = "🌤 Have a nice day!";
+          body.style.backgroundImage = "url(background.avif)";
+        }
 
         // Temperature suggestions
-        if (data.main.temp > 30) suggestion += " 🥵 Stay hydrated!";
-        else if (data.main.temp < 10) suggestion += " 🧣 Wear warm clothes!";
+        if (data.main.temp > 30) suggestion += " <br>🥵 Stay hydrated!";
+        else if (data.main.temp < 10) suggestion += "<br> 🧣 Wear warm clothes!";
 
         let icon = data.weather[0].icon;
         let iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
