@@ -4,12 +4,13 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
+   flex-direction: column; 
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   color: #fff;
   background: url('background.avif') no-repeat center center/cover;
-  
+  gap:20px;
 }
 .container {
   background-color: rgb(216, 218, 212);
@@ -19,6 +20,7 @@ body {
   padding: 30px;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
   text-align: center;
+  
 }
 h1 {
   color: rgb(193, 9, 128);  
@@ -45,20 +47,23 @@ h1 {
   width: 80%;
   font-size: 14px;
 }
-.search button {
-  padding: 10px 15px ;
+button {
+  padding: 15px 30px;
   border: none;
-  background: #ff9800;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 12px;
+  background: #ff6f00; 
+  color: #fff;
+  font-size: 18px;
   font-weight: bold;
-  width: 50%;
+  cursor: pointer;
+  
 }
-.search button:hover {
-  background: #e68900;
-  transform: translateY(-5px);
+
+button:hover {
+  background: #e65100;
+  transform: scale(1.05);
 }
+
 .result {
   font-size: 18px;
   margin-top: 15px;
@@ -83,6 +88,9 @@ h1 {
   font-size: 16px;
   margin: 4px 0;
 }
+
+
+
 @media (max-width: 400px) {
   .container {
     width: 90%;

@@ -10,7 +10,7 @@ body {
   min-height: 100vh;
   color: #fff;
   text-align: center;
-  background: url('background.avif') no-repeat center center/cover; /* Replace with your image path */
+  background: url('background.avif') no-repeat center center/cover; 
   position: relative;
   overflow: hidden;
 }
